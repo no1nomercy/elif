@@ -15,15 +15,6 @@ function sendToDiscord(mesaj) {
     });
 }
 
-// Hayır butonu kaçsın
-noBtn.addEventListener('mouseover', () => {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    noBtn.style.position = 'fixed';
-    noBtn.style.left = x + 'px';
-    noBtn.style.top = y + 'px';
-});
-
 // Evet'e basınca olacaklar
 yesBtn.addEventListener('click', () => {
     // 1. Yazıları değiştir
