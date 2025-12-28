@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #fbc2eb 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    padding: 50px;
+    text-align: center;
+    width: 350px;
+    transition: all 0.5s ease;
+}
+
+.letter-wrapper {
+    position: relative;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.letter-e {
+    font-size: 80px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.heart-bg {
+    position: absolute;
+    font-size: 110px;
+    color: rgba(255, 255, 255, 0.3);
+    animation: pulse 2s infinite;
+}
+.heart-bg::before { content: "❤"; }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.6; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
+
+h2 { color: white; margin-bottom: 10px; }
+p { color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.5; }
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-yes, .btn-no {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-yes { background: #4ee44e; color: white; box-shadow: 0 5px 15px rgba(78,228,78,0.4); }
+.btn-no { background: #ff5e5e; color: white; }
