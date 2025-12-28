@@ -7,31 +7,22 @@ const heart = document.querySelector('.heart-bg');
 const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1454890954770088020/sb3j4S_ZnF5siXaTIJ0PDTdoTPIoWuXfi8IzfZicXqE1LVqyXrld4ggr2brhFz1kdvbj";
 
 function sendToDiscord(mesaj) {
-    const data = {
-        content: mesaj,
-        username: "Aşk Botu",
-        avatar_url: "https://cdn-icons-png.flaticon.com/512/833/833472.png"
-    };
-
+    if(DISCORD_WEBHOOK === "https://discord.com/api/webhooks/1454890954770088020/sb3j4S_ZnF5siXaTIJ0PDTdoTPIoWuXfi8IzfZicXqE1LVqyXrld4ggr2brhFz1kdvbj") return;
     fetch(DISCORD_WEBHOOK, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => {
-        if (!response.ok) {
-            console.error("Webhook hatası:", response.statusText);
-        } else {
-            console.log("Discord'a başarıyla gönderildi!");
-        }
-    })
-    .catch(error => {
-        console.error("Gönderim sırasında hata oluştu:", error);
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: mesaj })
     });
 }
 
+// Hayır butonu kaçsın
+noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = 'fixed';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+});
 
 // Evet'e basınca olacaklar
 yesBtn.addEventListener('click', () => {
